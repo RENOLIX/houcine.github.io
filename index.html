@@ -1,137 +1,392 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<!-- Empêche le dézoom sur mobile -->
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>Mounir VIDEOGRAPHYDZ</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MounirCH Filmmaker</title>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@400;500;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --orange: #FF914D;
+            --dark-green: #051805;
+            --black: #000000;
+            --white: #ffffff;
+        }
 
-<style>
-    /* --- RESET GÉNÉRAL --- */
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body, html { width: 100%; overflow-x: hidden; background-color: #000; }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: var(--dark-green);
+            color: var(--white);
+            overflow-x: hidden;
+        }
 
-    /* =========================================
-       STYLE ORDINATEUR (Ton code Canva)
-    ========================================= */
-    .desktop-only {
-        display: block; /* Visible par défaut sur PC */
-        width: 100%;
-    }
+        /* TYPOGRAPHIE */
+        h1, h2, h3 {
+            font-family: 'Anton', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin: 0;
+        }
+        
+        h2 {
+            font-size: 2.5rem;
+            color: var(--orange);
+            margin-bottom: 20px;
+        }
 
-    /* Ton conteneur Canva */
-    .app-wrapper {
-        position: relative;
-        width: 100%;
-        max-width: 100%;
-    }
-    .canva-embed-container {
-        position: relative;
-        width: 100%;
-        height: 0;
-        padding-top: 656.8082%; /* Ton ratio */
-        padding-bottom: 0;
-        box-shadow: none;
-        overflow: hidden;
-    }
-    .canva-embed-container iframe {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        top: 0; left: 0; border: none;
-    }
-    /* Boutons invisibles PC */
-    .overlay-layer {
-        position: absolute;
-        top: 0; left: 0; width: 100%; height: 100%;
-        z-index: 50; pointer-events: none;
-    }
-    .transparent-btn {
-        position: absolute; display: block; cursor: pointer; pointer-events: auto;
-        background: transparent; -webkit-tap-highlight-color: transparent;
-    }
-    .btn-contact { top: 5.6%; right: 4.5%; width: 13%; height: 1.5%; }
-    .btn-work { top: 7.2%; right: 4.5%; width: 13%; height: 1.5%; }
-    #target-what-we-do { position: absolute; top: 13.5%; left: 0; }
-    #target-contact { position: absolute; top: 92%; left: 0; }
+        p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 15px;
+            color: #ddd; /* Par défaut gris clair */
+        }
 
-    /* =========================================
-       STYLE TÉLÉPHONE (Tes 2 images collées)
-    ========================================= */
-    .mobile-only {
-        display: none; /* Caché par défaut sur PC */
-    }
+        .text-orange { color: var(--orange); }
+        .font-oswald { font-family: 'Oswald', sans-serif; }
+        
+        /* BOUTON BOOK NOW */
+        .btn-book {
+            display: inline-block;
+            background-color: var(--orange);
+            color: var(--black);
+            padding: 10px 30px;
+            font-family: 'Oswald', sans-serif;
+            font-weight: bold;
+            text-transform: uppercase;
+            text-decoration: none;
+            border: 2px solid var(--orange);
+            margin-top: 10px;
+            transition: 0.3s;
+        }
+        .btn-book:hover { background: transparent; color: var(--orange); }
 
-    .mobile-stack img {
-        display: block; /* Supprime l'espace vide sous les images */
-        width: 100%;    /* Prend toute la largeur */
-        height: auto;
-        border: none;
-        margin: 0;
-        padding: 0;
-        vertical-align: bottom; /* Sécurité anti-espace blanc */
-    }
+        /* LAYOUT & GRILLES */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 50px 20px;
+        }
 
-    /* =========================================
-       BOUTON WHATSAPP (Pour les deux)
-    ========================================= */
-    .fab {
-        position: fixed; bottom: 20px; right: 20px;
-        background: #25D366; color: white;
-        width: 55px; height: 55px; border-radius: 50%;
-        display: flex; align-items: center; justify-content: center;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.4);
-        z-index: 999; text-decoration: none;
-    }
-    .fab svg { width: 30px; height: 30px; fill: white; }
+        img { width: 100%; height: auto; display: block; object-fit: cover; }
+        
+        /* CLASS SPECIAL POUR TEXTE ORANGE */
+        .all-orange-section {
+            color: var(--orange);
+        }
+        .all-orange-section p, 
+        .all-orange-section h2, 
+        .all-orange-section .star-text {
+            color: var(--orange) !important;
+        }
+        
+        /* RESPONSIVE GRID SYSTEM */
+        .grid-split {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+            align-items: center;
+        }
 
-    /* =========================================
-       RÈGLES RESPONSIVE (Le switch magique)
-    ========================================= */
-    @media (max-width: 768px) {
-        .desktop-only { display: none !important; } /* Cache le PC */
-        .mobile-only  { display: block !important; } /* Affiche le Mobile */
-    }
-</style>
+        /* --- SECTION HERO --- */
+        .hero {
+            height: 90vh;
+            /* Photo de fond Filmmaker haute qualité */
+            background: linear-gradient(to right, rgba(0,0,0,0.85), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80'); 
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            padding-left: 5%;
+        }
+        .hero-content h3 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1rem;
+            letter-spacing: 3px;
+            color: var(--orange);
+            margin-bottom: 10px;
+        }
+        .hero-content h1 {
+            font-size: 4rem;
+            line-height: 0.9;
+            margin-bottom: 20px;
+            color: white;
+        }
+        .hero-stroke {
+            color: transparent;
+            -webkit-text-stroke: 1px white;
+        }
+
+        /* --- ELEMENT PHONE --- */
+        .phone-mockup {
+            max-width: 280px;
+            margin: 0 auto;
+            border-radius: 30px;
+            border: 5px solid #111;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        /* --- LISTE ETOILE --- */
+        .star-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+        .star-icon {
+            font-size: 1.5rem;
+            color: transparent;
+            -webkit-text-stroke: 1px var(--orange);
+            margin-right: 15px;
+            line-height: 1;
+        }
+        .star-text {
+            font-family: 'Oswald', sans-serif;
+            font-weight: bold;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+        }
+
+        /* --- SECTION BUSINESS (ORANGE) --- */
+        .business-section {
+            background-color: #E88D67;
+            color: black;
+            padding: 60px 20px;
+        }
+        .business-section h2 { color: black; font-size: 3rem; line-height: 0.9; margin-bottom: 10px; }
+        .business-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 10px;
+            margin-top: 30px;
+        }
+
+        /* --- SECTION GRADUATION --- */
+        .graduation-section { background-color: var(--dark-green); position: relative; }
+        .film-strip {
+            width: 100%; height: 40px; background: #000;
+            border-top: 2px dashed #444; border-bottom: 2px dashed #444;
+            display: flex; justify-content: space-around; align-items: center;
+            margin-bottom: 40px;
+        }
+        .hole { width: 20px; height: 25px; background: #222; border-radius: 2px; }
+        
+        /* --- BACKSTAGE --- */
+        .backstage-grid { display: grid; grid-template-columns: 1fr; gap: 20px; }
+        .film-col { background: #000; padding: 5px; border-left: 2px dashed #333; border-right: 2px dashed #333; }
+
+        /* --- REVIEWS --- */
+        .reviews-section { background-color: var(--orange); color: black; }
+        .reviews-section h2 { color: black; font-size: 3.5rem; }
+        .gold-frame {
+            border: 15px solid #bfa048;
+            background-color: #222;
+            padding: 15px;
+            box-shadow: 10px 10px 20px rgba(0,0,0,0.4);
+            display: flex; flex-direction: column; gap: 15px;
+        }
+        .bubble { background: #333; color: white; padding: 12px; border-radius: 10px; font-size: 0.8rem; position: relative; }
+        .bubble.right { align-self: flex-end; background: #eee; color: black; }
+
+        /* --- FOOTER --- */
+        .footer {
+            background: url('https://via.placeholder.com/1920x800/000/000?text=FOND+NOIR+CAMERAMAN') center/cover;
+            position: relative;
+        }
+        .footer-overlay {
+            background: linear-gradient(to right, #000 40%, transparent);
+            padding: 80px 20px;
+        }
+        .outline-title {
+            font-size: 3rem; color: transparent; -webkit-text-stroke: 1px var(--orange);
+            font-family: 'Anton', sans-serif; line-height: 1; margin-bottom: 30px;
+        }
+        .contact-head { color: var(--orange); font-family: 'Oswald', sans-serif; font-weight: bold; display: block; }
+        .contact-val { color: white; font-size: 1.1rem; margin-bottom: 20px; display: block; }
+
+        /* --- RESPONSIVE DESKTOP (900px+) --- */
+        @media (min-width: 900px) {
+            .grid-split { grid-template-columns: 1fr 1fr; }
+            /* Inversion ordre Clients & Collab sur PC (Liste à gauche) */
+            .order-left-pc { order: 1; }
+            .order-right-pc { order: 2; }
+            
+            .business-grid {
+                grid-template-areas: "pizza pizza" "perfume bottle";
+                grid-template-columns: 1fr 1fr;
+            }
+            .grid-pizza { grid-area: pizza; }
+            
+            .backstage-grid { grid-template-columns: 1fr 1fr 1fr; }
+            
+            .footer-overlay { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; background: linear-gradient(to right, #000 60%, transparent); }
+
+            h1 { font-size: 5rem; }
+        }
+    </style>
 </head>
 <body>
 
-    <!-- 1. PARTIE ORDINATEUR (Ton Canva) -->
-    <div class="desktop-only">
-        <div class="app-wrapper">
-            <div class="canva-embed-container">
-                <iframe loading="lazy"
-                    src="https://www.canva.com/design/DAHAwow4l-0/Vo3-SnnqUFuPiqcQtdoQRQ/view?embed" 
-                    allowfullscreen="allowfullscreen" 
-                    allow="fullscreen">
-                </iframe>
-                
-                <div id="target-what-we-do"></div>
-                <div id="target-contact"></div>
-                
-                <div class="overlay-layer">
-                    <a href="#target-contact" class="transparent-btn btn-contact"></a>
-                    <a href="#target-what-we-do" class="transparent-btn btn-work"></a>
+    <!-- 1. HERO SECTION -->
+    <header class="hero">
+        <div class="hero-content">
+            <h3>FILM MAKER FILMMAKER</h3>
+            <h1>MOUNIRCH<br><span class="hero-stroke">FILMMAKER</span></h1>
+            <a href="#" class="btn-book">BOOK NOW</a>
+        </div>
+    </header>
+
+    <!-- 2. QUOTE SECTION (TEXTE ORANGE) -->
+    <section class="quote-section" style="background:#000; padding:40px 20px; text-align:center;">
+        <p class="font-oswald text-orange" style="font-size:1.2rem; text-transform:uppercase; margin:0; color: var(--orange);">
+            “ WHERE PASSION FOR FILMMAKING MEANS ARTISTIC VISION. A WAY TO TURN VISION, PASSION, AND DETAIL INTO MOVING ART. ”
+        </p>
+    </section>
+
+    <!-- 3. WHAT WE DO (TOUT EN ORANGE) -->
+    <section class="container grid-split all-orange-section">
+        <!-- Texte Gauche -->
+        <div>
+            <h2>WHAT WE DO</h2>
+            <p>
+                Je réalise des vidéos créatives au style cinématographique, guidées par ma passion pour le cinéma depuis l’âge de 13 ans.
+            </p>
+            <p>
+                Filmmaker professionnel, je raconte des histoires à travers l’image en capturant l’émotion, l’atmosphère et les moments forts.
+            </p>
+            <p>
+                Mon objectif est de transformer chaque projet en une expérience visuelle cinématographique et impactante.
+            </p>
+            <p style="margin-top:20px; font-style:italic;">
+                ENG : I create cinematic-style videos inspired by a deep passion for cinema. As a professional filmmaker, I focus on capturing emotion and atmosphere through visual storytelling.
+            </p>
+        </div>
+        <!-- Vidéo Droite (PC) / Bas (Mobile) -->
+        <div class="phone-mockup">
+            <!-- VIDEO REMPLAÇANT L'IMAGE -->
+            <video src="video1.mp4" autoplay loop muted playsinline style="width:100%; height:100%; object-fit:cover; display:block;"></video>
+        </div>
+    </section>
+
+    <!-- 4. CLIENTS & COLLABORATIONS (TOUT EN ORANGE) -->
+    <section class="container grid-split all-orange-section">
+        <!-- Liste à Gauche sur PC -->
+        <div class="order-left-pc">
+            <div class="star-item">
+                <span class="star-icon">✦</span>
+                <span class="star-text">Vidéos et photos de soutenance & graduation</span>
+            </div>
+            <div class="star-item">
+                <span class="star-icon">✦</span>
+                <span class="star-text">Couverture d’événements</span>
+            </div>
+            <div class="star-item">
+                <span class="star-icon">✦</span>
+                <span class="star-text">Vidéos corporate et branding</span>
+            </div>
+        </div>
+
+        <!-- Texte à Droite sur PC -->
+        <div class="order-right-pc">
+            <h2>CLIENTS &<br>COLLABORATIONS</h2>
+            <p>
+                J’ai collaboré en tant que filmmaker avec plusieurs entreprises et restaurants tels que El Aseel, Maison Aziadi, Borsa Mobilya, Roma Tacos, La Baraque Burger, El Forno, et autres.
+            </p>
+            <p>
+                En parallèle, j’ai contribué à leur marketing digital en créant du contenu visuel efficace, améliorant leur visibilité et leurs résultats.
+            </p>
+            <p>
+                J’ai également réalisé des prestations photo & vidéo pour des événements, des soutenances et des événements familiaux, notamment dans la majorité des universités d’Alger, Boumerdès et Blida.
+            </p>
+            <p style="margin-top:20px; font-style:italic;">
+                I have worked as a filmmaker and supported digital marketing efforts by creating effective visual content. I have also covered family events and academic defenses professionally.
+            </p>
+        </div>
+    </section>
+
+    <!-- 5. BUSINESS VISUAL CONTENT -->
+    <section class="business-section">
+        <div class="container">
+            <h2>BUSINESS VISUAL<br>CONTENT</h2>
+            <span class="font-oswald" style="font-weight:bold; display:block; margin-bottom:30px;">
+                PRODUCT / AESTHETIC / WORKS <br> FOOD / LIFESTYLE / ADVERTISEMENT
+            </span>
+            <div class="business-grid">
+                <div class="grid-pizza">
+                    <img src="https://via.placeholder.com/800x400/222/fff?text=PHOTO+PIZZA+FOOD" style="border-radius:10px;">
+                </div>
+                <div>
+                    <img src="https://via.placeholder.com/400x400/333/fff?text=PHOTO+PARFUM" style="border-radius:10px;">
+                </div>
+                <div>
+                    <img src="https://via.placeholder.com/400x400/444/fff?text=PHOTO+BOUTEILLE" style="border-radius:10px;">
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 
-    <!-- 2. PARTIE TÉLÉPHONE (Tes 2 images sans espace) -->
-    <div class="mobile-only">
-        <div class="mobile-stack">
-            <!-- 👇 REMPLACE LES LIENS ICI PAR TES IMAGES MOBILE 👇 -->
-            <img src="https://i.ibb.co/mF4GDM7w/Accueil-11.png" alt="Mobile Image 1">
-            <img src="https://i.ibb.co/wjFq6JJ/Design-sans-titre-35.png" alt="Mobile Image 2">
+    <!-- 6. GRADUATION EVENT -->
+    <section class="graduation-section container">
+        <div class="film-strip">
+            <div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div>
         </div>
-    </div>
+        <h2 class="text-orange" style="text-align:center;">GRADUATION EVENT</h2>
+        <p style="text-align:center;">Capturez vos moments de réussite avec une qualité cinéma.</p>
+        <div class="grid-split" style="margin-top:40px;">
+            <img src="https://via.placeholder.com/600x400/222/fff?text=PHOTO+DIPLOME+DRAPEAU" style="border-radius:10px;">
+            <div class="phone-mockup">
+                <img src="https://via.placeholder.com/300x600/111/fff?text=STORY+GRADUATION" alt="Graduation Story">
+            </div>
+        </div>
+    </section>
 
-    <!-- 3. BOUTON WHATSAPP (Visible partout) -->
-    <a href="https://wa.me/213000000000" class="fab" target="_blank">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-            <path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/>
-        </svg>
-    </a>
+    <!-- 7. BACKSTAGE CINEMA -->
+    <section class="container">
+        <h2 class="text-orange" style="text-align:center; margin-bottom:40px;">BACKSTAGE CINEMA</h2>
+        <div class="backstage-grid">
+            <div class="film-col"><img src="https://via.placeholder.com/300x500/111/fff?text=COULISSE+1" alt="Backstage 1"></div>
+            <div class="film-col"><img src="https://via.placeholder.com/300x500/222/fff?text=COULISSE+2" alt="Backstage 2"></div>
+            <div class="film-col"><img src="https://via.placeholder.com/300x500/333/fff?text=COULISSE+3" alt="Backstage 3"></div>
+        </div>
+    </section>
+
+    <!-- 8. REVIEWS -->
+    <section class="reviews-section">
+        <div class="container grid-split">
+            <div>
+                <h2>CLIENT</h2>
+                <div style="font-family:'Oswald'; font-weight:bold; font-size:1.5rem; margin-bottom:20px;">REAL CLIENT FEEDBACK<br>& TRUSTED REVIEWS</div>
+                <div style="width:50px; height:3px; background:black; margin-bottom:20px;"></div>
+                <p style="color:black; font-weight:bold;">@MOUNIRCH.FILMMAKER<br>@MAGNIFIQUE.FILMMAKER</p>
+            </div>
+            <div class="gold-frame">
+                <div class="bubble">Merci énormément frère j'adore ❤️ C'est du super boulot !</div>
+                <div class="bubble right">Avec plaisir mon frère ! Content que ça te plaise 💪</div>
+                <div class="bubble">Franchement c'est magnifique. Les transitions, la musique... top !</div>
+                <div class="bubble right">❤️🙏</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 9. FOOTER -->
+    <footer class="footer">
+        <div class="footer-overlay">
+            <div>
+                <div class="outline-title">MAKING STORIES<br>REAL - CONTACT</div>
+                <span class="contact-head">PHONE / WHATSAPP</span>
+                <span class="contact-val">0559 83 20 01</span>
+                <span class="contact-head">RÉSEAUX / STAY CONNECTED</span>
+                <span class="contact-val">@mounirch.filmmaker</span>
+                <span class="contact-val">@magnifique.filmmaker</span>
+                <span class="contact-head">EMAIL</span>
+                <span class="contact-val">Hasniounirccontact@gmail.com</span>
+            </div>
+            <div style="margin-top: 30px;">
+                 <img src="https://via.placeholder.com/600x400/000/fff?text=GROSSE+CAMERA+PHOTO" style="border-radius: 20px; box-shadow: 0 10px 40px black;">
+            </div>
+        </div>
+    </footer>
 
 </body>
 </html>
