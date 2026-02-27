@@ -186,7 +186,7 @@
             white-space: normal; 
         }
         
-        /* GRILLE IMAGE ET CROIX (Modifiée pour position) */
+        /* GRILLE IMAGE ET CROIX */
         .l-shape-grid {
             display: grid;
             grid-template-columns: 150px 30px;
@@ -195,29 +195,22 @@
             flex-shrink: 0;
             position: relative;
             z-index: 1; 
-            
-            /* --- MODIFICATIONS ICI --- */
-            margin-left: -10px; /* Décalé vers la droite (était -40px) */
-            margin-top: 50px;   /* Descendu de 50px */
+            margin-left: -10px; 
+            margin-top: 50px;
         }
         
-        /* Ajustements Mobile */
         @media (max-width: 600px) {
             .quote-text p {
                 font-size: 0.9rem !important; 
             }
             .l-shape-grid {
-                margin-left: -10px; /* Garder le décalage sur mobile aussi */
-                margin-top: 30px;   /* Un peu moins descendu sur mobile */
+                margin-left: -10px; 
+                margin-top: 30px;
             }
         }
         
         .quote-img-150 {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            grid-column: 1;
-            grid-row: 1;
+            width: 100%; height: 100%; object-fit: cover; grid-column: 1; grid-row: 1;
         }
 
         /* STYLE POUR LES 'x' */
@@ -228,86 +221,130 @@
             font-size: 1.2rem;
             line-height: 1;
         }
-
-        .x-vertical {
-            grid-column: 2;
-            grid-row: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            align-items: center;
-            padding-bottom: 10px;
-        }
-
-        .x-horizontal {
-            grid-column: 1;
-            grid-row: 2;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding-right: 10px;
-        }
-        
-        .x-corner {
-            grid-column: 2;
-            grid-row: 2;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
+        .x-vertical { grid-column: 2; grid-row: 1; display: flex; flex-direction: column; justify-content: space-between; align-items: center; padding-bottom: 10px; }
+        .x-horizontal { grid-column: 1; grid-row: 2; display: flex; justify-content: space-between; align-items: center; padding-right: 10px; }
+        .x-corner { grid-column: 2; grid-row: 2; display: flex; justify-content: center; align-items: center; }
 
         /* --- ELEMENT PHONE --- */
         .phone-mockup {
-            max-width: 280px;
-            margin: 0 auto;
-            border-radius: 30px;
-            border: 5px solid #111;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            max-width: 280px; margin: 0 auto; border-radius: 30px; border: 5px solid #111; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
 
         /* --- LISTE ETOILE --- */
-        .star-item {
-            display: flex;
-            align-items: flex-start;
-            margin-bottom: 15px;
-        }
-        .star-icon {
-            font-size: 1.5rem;
-            color: transparent;
-            -webkit-text-stroke: 1px var(--orange);
-            margin-right: 15px;
-            line-height: 1;
-        }
-        .star-text {
-            font-family: 'Oswald', sans-serif;
-            font-weight: bold;
-            font-size: 1.1rem;
-            text-transform: uppercase;
-        }
+        .star-item { display: flex; align-items: flex-start; margin-bottom: 15px; }
+        .star-icon { font-size: 1.5rem; color: transparent; -webkit-text-stroke: 1px var(--orange); margin-right: 15px; line-height: 1; }
+        .star-text { font-family: 'Oswald', sans-serif; font-weight: bold; font-size: 1.1rem; text-transform: uppercase; }
 
         /* --- SECTION BUSINESS --- */
         .business-section {
-            background-color: #E88D67;
-            color: black;
+            background: linear-gradient(rgba(232, 141, 103, 0.75), rgba(232, 141, 103, 0.75)), url('https://i.ibb.co/h127ctKL/IMG-0382.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white; 
+            padding: 80px 20px;
+            position: relative;
+            overflow: hidden; 
+        }
+
+        .business-layout {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        .business-left h2 { 
+            color: white; 
+            font-size: 4rem; 
+            line-height: 0.9; 
+            margin-bottom: 20px; 
+            text-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+        }
+        .business-left p {
+            color: white; font-weight: 500; font-size: 1.1rem; max-width: 90%;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+        }
+
+        .business-right {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            align-items: center; 
+        }
+
+        .img-pizza-top {
+            width: 100%;
+            max-width: 400px;
+            height: auto;
+            border-radius: 10px;
+            border: 5px solid rgba(85, 49, 31, 0.5); 
+        }
+        .img-pizza-bottom {
+            width: 100%;
+            max-width: 400px;
+            height: auto;
+            border-radius: 5px;
+            border: 2px solid black; 
+        }
+
+        /* --- NOUVEAU BLOC: CINEMATIC VIDEO (ORANGE) --- */
+        .cinematic-section {
+            background-color: #ff914d; /* Fond Orange */
+            color: white; /* Texte par défaut en blanc */
             padding: 60px 20px;
         }
-        .business-section h2 { color: black; font-size: 3rem; line-height: 0.9; margin-bottom: 10px; }
-        .business-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 10px;
-            margin-top: 30px;
+
+        .cinematic-grid {
+            display: flex;
+            flex-direction: column; /* Mobile: empilé */
+            gap: 40px;
+            align-items: center;
+            text-align: center;
+        }
+
+        /* Colonne Centrale */
+        .cine-col-center {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .cine-col-center h2 {
+            font-size: 2.5rem;
+            color: white; /* TITRE EN BLANC */
+            margin-bottom: 20px;
+            line-height: 1.1;
+        }
+        .cine-col-center img {
+            width: 100%;
+            max-width: 250px;
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            border: 3px solid white; /* Bordure blanche pour aller avec le texte */
+        }
+        .cine-col-center p {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.1rem;
+            color: white; /* TEXTE EN BLANC */
+            font-weight: bold;
+            max-width: 300px;
+            margin: 0;
+        }
+
+        /* Vidéos latérales */
+        .cine-video {
+            width: 100%;
+            max-width: 400px;
+            height: auto;
+            object-fit: cover;
+            border-radius: 20px;
+            border: 2px solid white;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
         }
 
         /* --- SECTION GRADUATION --- */
         .graduation-section { background-color: var(--dark-green); position: relative; }
-        .film-strip {
-            width: 100%; height: 40px; background: #000;
-            border-top: 2px dashed #444; border-bottom: 2px dashed #444;
-            display: flex; justify-content: space-around; align-items: center;
-            margin-bottom: 40px;
-        }
+        .film-strip { width: 100%; height: 40px; background: #000; border-top: 2px dashed #444; border-bottom: 2px dashed #444; display: flex; justify-content: space-around; align-items: center; margin-bottom: 40px; }
         .hole { width: 20px; height: 25px; background: #222; border-radius: 2px; }
         
         /* --- BACKSTAGE --- */
@@ -317,49 +354,76 @@
         /* --- REVIEWS --- */
         .reviews-section { background-color: var(--orange); color: black; }
         .reviews-section h2 { color: black; font-size: 3.5rem; }
-        .gold-frame {
-            border: 15px solid #bfa048;
-            background-color: #222;
-            padding: 15px;
-            box-shadow: 10px 10px 20px rgba(0,0,0,0.4);
-            display: flex; flex-direction: column; gap: 15px;
-        }
+        .gold-frame { border: 15px solid #bfa048; background-color: #222; padding: 15px; box-shadow: 10px 10px 20px rgba(0,0,0,0.4); display: flex; flex-direction: column; gap: 15px; }
         .bubble { background: #333; color: white; padding: 12px; border-radius: 10px; font-size: 0.8rem; position: relative; }
         .bubble.right { align-self: flex-end; background: #eee; color: black; }
 
         /* --- FOOTER --- */
-        .footer {
-            background: url('https://via.placeholder.com/1920x800/000/000?text=FOND+NOIR+CAMERAMAN') center/cover;
-            position: relative;
-        }
-        .footer-overlay {
-            background: linear-gradient(to right, #000 40%, transparent);
-            padding: 80px 20px;
-        }
-        .outline-title {
-            font-size: 3rem; color: transparent; -webkit-text-stroke: 1px var(--orange);
-            font-family: 'Anton', sans-serif; line-height: 1; margin-bottom: 30px;
-        }
+        .footer { background: url('https://via.placeholder.com/1920x800/000/000?text=FOND+NOIR+CAMERAMAN') center/cover; position: relative; }
+        .footer-overlay { background: linear-gradient(to right, #000 40%, transparent); padding: 80px 20px; }
+        .outline-title { font-size: 3rem; color: transparent; -webkit-text-stroke: 1px var(--orange); font-family: 'Anton', sans-serif; line-height: 1; margin-bottom: 30px; }
         .contact-head { color: var(--orange); font-family: 'Oswald', sans-serif; font-weight: bold; display: block; }
         .contact-val { color: white; font-size: 1.1rem; margin-bottom: 20px; display: block; }
 
         /* --- RESPONSIVE DESKTOP (900px+) --- */
         @media (min-width: 900px) {
             .grid-split { grid-template-columns: 1fr 1fr; }
-            /* Inversion ordre Clients & Collab sur PC (Liste à gauche) */
             .order-left-pc { order: 1; }
             .order-right-pc { order: 2; }
             
-            .business-grid {
-                grid-template-areas: "pizza pizza" "perfume bottle";
-                grid-template-columns: 1fr 1fr;
+            .business-layout {
+                flex-direction: row; 
+                align-items: flex-start; 
+                justify-content: space-between;
             }
-            .grid-pizza { grid-area: pizza; }
+            .business-left { 
+                flex: 1; 
+                padding-right: 40px; 
+                align-self: center; 
+            }
+
+            .business-left h2 {
+                font-size: 6rem; 
+                margin-top: -30px; 
+                line-height: 0.9;
+                margin-bottom: 30px;
+            }
+            
+            .business-right { 
+                flex: 1; 
+                align-items: flex-end; 
+                width: auto;
+                position: relative;
+            }
+
+            .img-pizza-top {
+                width: 361px !important;
+                height: 290px !important;
+                object-fit: cover;
+                max-width: none !important; 
+            }
+            .img-pizza-bottom {
+                width: 697px !important;
+                height: 215px !important;
+                object-fit: cover;
+                max-width: none !important; 
+                min-width: 697px !important;
+                transform: translateX(-100px); 
+            }
+
+            /* --- CINEMATIC SECTION GRID (PC) --- */
+            .cinematic-grid {
+                display: grid;
+                grid-template-columns: 1fr 1.2fr 1fr; /* Vidéo | Centre | Vidéo */
+                gap: 30px;
+                align-items: center;
+            }
+            .cine-col-center {
+                justify-content: center;
+            }
             
             .backstage-grid { grid-template-columns: 1fr 1fr 1fr; }
-            
             .footer-overlay { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; background: linear-gradient(to right, #000 60%, transparent); }
-
             h1 { font-size: 5rem; }
         }
     </style>
@@ -388,32 +452,16 @@
     <!-- 2. QUOTE SECTION -->
     <section class="quote-section" style="background:#000; padding:60px 20px;">
         <div class="quote-layout">
-            <!-- Texte -->
             <div class="quote-text">
                 <p class="font-oswald text-orange" style="margin:0; line-height: 1.4;">
                     • Where passion for filmmaking meets artistic vision.<br>
                     A way to turn vision, passion, and detail into moving art.
                 </p>
             </div>
-            
-            <!-- Visuel : Image 150px + CROIX x EN L -->
             <div class="l-shape-grid">
-                <!-- Image -->
-                <img src="https://i.ibb.co/9k2CXcNq/1080-x-1800-px-500-x-500-px-1.png" 
-                     alt="Camera Detail" 
-                     class="quote-img-150">
-                
-                <!-- Verticales (Droite) -->
-                <div class="x-vertical x-style">
-                    <div>x</div><div>x</div><div>x</div><div>x</div>
-                </div>
-
-                <!-- Horizontales (Bas) -->
-                <div class="x-horizontal x-style">
-                    <div>x</div><div>x</div><div>x</div><div>x</div>
-                </div>
-                
-                <!-- Coin -->
+                <img src="https://i.ibb.co/JjByJZpQ/1080-x-1800-px-500-x-500-px.png" alt="Camera Detail" class="quote-img-150">
+                <div class="x-vertical x-style"><div>x</div><div>x</div><div>x</div><div>x</div></div>
+                <div class="x-horizontal x-style"><div>x</div><div>x</div><div>x</div><div>x</div></div>
                 <div class="x-corner x-style">x</div>
             </div>
         </div>
@@ -423,18 +471,10 @@
     <section class="container grid-split all-orange-section">
         <div>
             <h2>WHAT WE DO</h2>
-            <p>
-                Je réalise des vidéos créatives au style cinématographique, guidées par ma passion pour le cinéma depuis l’âge de 13 ans.
-            </p>
-            <p>
-                Filmmaker professionnel, je raconte des histoires à travers l’image en capturant l’émotion, l’atmosphère et les moments forts.
-            </p>
-            <p>
-                Mon objectif est de transformer chaque projet en une expérience visuelle cinématographique et impactante.
-            </p>
-            <p style="margin-top:20px; font-style:italic;">
-                ENG : I create cinematic-style videos inspired by a deep passion for cinema. As a professional filmmaker, I focus on capturing emotion and atmosphere through visual storytelling.
-            </p>
+            <p>Je réalise des vidéos créatives au style cinématographique, guidées par ma passion pour le cinéma depuis l’âge de 13 ans.</p>
+            <p>Filmmaker professionnel, je raconte des histoires à travers l’image en capturant l’émotion, l’atmosphère et les moments forts.</p>
+            <p>Mon objectif est de transformer chaque projet en une expérience visuelle cinématographique et impactante.</p>
+            <p style="margin-top:20px; font-style:italic;">ENG : I create cinematic-style videos inspired by a deep passion for cinema. As a professional filmmaker, I focus on capturing emotion and atmosphere through visual storytelling.</p>
         </div>
         <div class="phone-mockup">
             <video src="video1.mp4" autoplay loop muted playsinline style="width:100%; height:100%; object-fit:cover; display:block;"></video>
@@ -452,27 +492,46 @@
             <h2>CLIENTS &<br>COLLABORATIONS</h2>
             <p>J’ai collaboré en tant que filmmaker avec plusieurs entreprises et restaurants tels que El Aseel, Maison Aziadi, Borsa Mobilya, Roma Tacos, La Baraque Burger, El Forno, et autres.</p>
             <p>En parallèle, j’ai contribué à leur marketing digital en créant du contenu visuel efficace, améliorant leur visibilité et leurs résultats.</p>
-            <p>J’ai également réalisé des prestations photo & vidéo pour des événements, des soutenances et des événements familiaux, notamment dans la majorité des universités d’Alger, Boumerdès et Blida.</p>
-            <p style="margin-top:20px; font-style:italic;">I have worked as a filmmaker and supported digital marketing efforts by creating effective visual content. I have also covered family events and academic defenses professionally.</p>
         </div>
     </section>
 
     <!-- 5. BUSINESS VISUAL CONTENT -->
     <section class="business-section">
-        <div class="container">
-            <h2>BUSINESS VISUAL<br>CONTENT</h2>
-            <span class="font-oswald" style="font-weight:bold; display:block; margin-bottom:30px;">
-                PRODUCT / AESTHETIC / WORKS <br> FOOD / LIFESTYLE / ADVERTISEMENT
-            </span>
-            <div class="business-grid">
-                <div class="grid-pizza"><img src="https://via.placeholder.com/800x400/222/fff?text=PHOTO+PIZZA+FOOD" style="border-radius:10px;"></div>
-                <div><img src="https://via.placeholder.com/400x400/333/fff?text=PHOTO+PARFUM" style="border-radius:10px;"></div>
-                <div><img src="https://via.placeholder.com/400x400/444/fff?text=PHOTO+BOUTEILLE" style="border-radius:10px;"></div>
+        <div class="container business-layout">
+            <div class="business-left">
+                <h2>BUSINESS VISUAL<br>CONTENT</h2>
+                <p>Réalisation de photos de pizzas destinées à la communication web et aux réseaux sociaux, alliant esthétique, impact visuel et cohérence de marque.</p>
+            </div>
+            <div class="business-right">
+                <img src="https://i.ibb.co/Mx0Nt7Hw/IMG-0380.jpg" alt="Pizza Art" class="img-pizza-top">
+                <img src="https://i.ibb.co/KzLHwXrk/1080-x-1800-px-500-x-500-px-2.png" alt="Pizza Film Strip" class="img-pizza-bottom">
             </div>
         </div>
     </section>
 
-    <!-- 6. GRADUATION EVENT -->
+    <!-- 6. NOUVEAU BLOC : CINEMATIC VIDEO (ORANGE) -->
+    <section class="cinematic-section">
+        <div class="container cinematic-grid">
+            <!-- Vidéo Gauche -->
+            <div class="cine-item">
+                <video src="videoparfum.mp4" autoplay loop muted playsinline class="cine-video"></video>
+            </div>
+
+            <!-- Centre : Titre + Photo + Texte -->
+            <div class="cine-col-center">
+                <h2>🎬 Product<br>Cinematic Video</h2>
+                <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Product Cinematic Shot">
+                <p>Chaque image raconte une histoire. Chaque mouvement sublime votre produit.</p>
+            </div>
+
+            <!-- Vidéo Droite -->
+            <div class="cine-item">
+                <video src="video3.mp4" autoplay loop muted playsinline class="cine-video"></video>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. GRADUATION EVENT -->
     <section class="graduation-section container">
         <div class="film-strip">
             <div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div>
@@ -487,7 +546,7 @@
         </div>
     </section>
 
-    <!-- 7. BACKSTAGE CINEMA -->
+    <!-- 8. BACKSTAGE CINEMA -->
     <section class="container">
         <h2 class="text-orange" style="text-align:center; margin-bottom:40px;">BACKSTAGE CINEMA</h2>
         <div class="backstage-grid">
@@ -497,7 +556,7 @@
         </div>
     </section>
 
-    <!-- 8. REVIEWS -->
+    <!-- 9. REVIEWS -->
     <section class="reviews-section">
         <div class="container grid-split">
             <div>
@@ -515,7 +574,7 @@
         </div>
     </section>
 
-    <!-- 9. FOOTER -->
+    <!-- 10. FOOTER -->
     <footer class="footer">
         <div class="footer-overlay">
             <div>
