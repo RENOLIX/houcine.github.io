@@ -57,7 +57,7 @@
             text-transform: uppercase;
             text-decoration: none;
             border: 2px solid var(--orange);
-            margin-top: 10px;
+            margin-top: 15px;
             transition: 0.3s;
         }
         .btn-book:hover { background: transparent; color: var(--orange); }
@@ -89,30 +89,78 @@
             align-items: center;
         }
 
-        /* --- SECTION HERO --- */
+        /* --- SECTION HERO (MODIFIÉE) --- */
         .hero {
-            height: 90vh;
-            /* Photo de fond Filmmaker haute qualité */
-            background: linear-gradient(to right, rgba(0,0,0,0.85), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80'); 
+            /* Hauteur minimum pour tout contenir */
+            min-height: 100vh;
+            height: auto;
+            background: linear-gradient(to right, rgba(0,0,0,0.85), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80'); 
             background-size: cover;
             background-position: center;
+            /* Centrage du contenu */
             display: flex;
+            flex-direction: column;
+            justify-content: center;
             align-items: center;
-            padding-left: 5%;
+            text-align: center;
+            padding: 100px 20px; /* Padding vertical pour éviter que ça touche les bords */
+            position: relative;
         }
-        .hero-content h3 {
+
+        /* Top Nav dans le Hero */
+        .hero-top-text {
+            position: absolute;
+            top: 30px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            gap: 50px;
             font-family: 'Oswald', sans-serif;
+            text-transform: uppercase;
             font-size: 1rem;
-            letter-spacing: 3px;
-            color: var(--orange);
-            margin-bottom: 10px;
+            letter-spacing: 2px;
+            color: white;
+            z-index: 10;
         }
+
+        .hero-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            z-index: 5;
+            width: 100%;
+        }
+
         .hero-content h1 {
             font-size: 4rem;
             line-height: 0.9;
-            margin-bottom: 20px;
+            margin: 20px 0;
             color: white;
         }
+        
+        /* Image 500x500 */
+        .hero-img-middle {
+            width: 250px;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 10px; /* Petit arrondi esthétique */
+            margin-bottom: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            max-width: 90vw; /* Pour que ça ne dépasse pas sur mobile */
+            max-height: 90vw;
+        }
+
+        /* Le sous-titre orange demandé */
+        .hero-subtitle {
+            font-family: 'Oswald', sans-serif;
+            color: var(--orange);
+            font-size: 21px; /* TAILLE DEMANDÉE */
+            margin-top: 10px;
+            font-weight: 500;
+            text-transform: uppercase;
+            max-width: 800px;
+        }
+
         .hero-stroke {
             color: transparent;
             -webkit-text-stroke: 1px white;
@@ -228,11 +276,30 @@
 </head>
 <body>
 
-    <!-- 1. HERO SECTION -->
+    <!-- 1. HERO SECTION (Modifiée) -->
     <header class="hero">
+        
+        <!-- Texte en haut -->
+        <div class="hero-top-text">
+            <span>Contact</span>
+            <span>what we do</span>
+        </div>
+
         <div class="hero-content">
-            <h3>FILM MAKER FILMMAKER</h3>
+            <!-- Image 500x500 : Silhouette au micro -->
+            <img src="https://i.ibb.co/4njhsPcy/Filmmaker.png" 
+                 alt="Silhouette of Man Standing in Front of Microphone" 
+                 class="hero-img-middle">
+
+            <!-- Titre -->
             <h1>MOUNIRCH<br><span class="hero-stroke">FILMMAKER</span></h1>
+            
+            <!-- Sous-titre Orange Taille 21 -->
+            <p class="hero-subtitle">
+                Films Cinématographiques • Couverture d’Événements •<br> 
+                Contenu pour Entreprises
+            </p>
+
             <a href="#" class="btn-book">BOOK NOW</a>
         </div>
     </header>
@@ -264,7 +331,7 @@
         </div>
         <!-- Vidéo Droite (PC) / Bas (Mobile) -->
         <div class="phone-mockup">
-            <!-- VIDEO REMPLAÇANT L'IMAGE -->
+            <!-- VIDEO VIDEO1.MP4 -->
             <video src="video1.mp4" autoplay loop muted playsinline style="width:100%; height:100%; object-fit:cover; display:block;"></video>
         </div>
     </section>
