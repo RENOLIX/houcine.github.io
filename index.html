@@ -89,25 +89,22 @@
             align-items: center;
         }
 
-        /* --- SECTION HERO (MODIFIÉE) --- */
+        /* --- SECTION HERO --- */
         .hero {
-            /* Hauteur minimum pour tout contenir */
             min-height: 100vh;
             height: auto;
             background: linear-gradient(to right, rgba(0,0,0,0.85), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80'); 
             background-size: cover;
             background-position: center;
-            /* Centrage du contenu */
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
-            padding: 100px 20px; /* Padding vertical pour éviter que ça touche les bords */
+            padding: 100px 20px; 
             position: relative;
         }
 
-        /* Top Nav dans le Hero */
         .hero-top-text {
             position: absolute;
             top: 30px;
@@ -138,23 +135,20 @@
             color: white;
         }
         
-        /* Image 500x500 */
         .hero-img-middle {
             width: 250px;
             height: 250px;
             object-fit: cover;
-            border-radius: 10px; /* Petit arrondi esthétique */
+            border-radius: 10px; 
             margin-bottom: 20px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-            max-width: 90vw; /* Pour que ça ne dépasse pas sur mobile */
-            max-height: 90vw;
+            max-width: 90vw;
         }
 
-        /* Le sous-titre orange demandé */
         .hero-subtitle {
             font-family: 'Oswald', sans-serif;
             color: var(--orange);
-            font-size: 21px; /* TAILLE DEMANDÉE */
+            font-size: 21px; 
             margin-top: 10px;
             font-weight: 500;
             text-transform: uppercase;
@@ -164,6 +158,102 @@
         .hero-stroke {
             color: transparent;
             -webkit-text-stroke: 1px white;
+        }
+
+        /* --- QUOTE SECTION STYLES --- */
+        .quote-layout {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0; 
+            max-width: 1000px; 
+            margin: 0 auto;
+            text-align: left;
+            flex-wrap: nowrap; 
+            position: relative;
+        }
+        
+        .quote-text {
+            flex: 1; 
+            min-width: 0; 
+            position: relative;
+            z-index: 10; 
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.8); 
+        }
+        
+        .quote-text p {
+            font-size: 1.4rem; 
+            white-space: normal; 
+        }
+        
+        /* GRILLE IMAGE ET CROIX (Modifiée pour position) */
+        .l-shape-grid {
+            display: grid;
+            grid-template-columns: 150px 30px;
+            grid-template-rows: 150px 30px;
+            gap: 5px;
+            flex-shrink: 0;
+            position: relative;
+            z-index: 1; 
+            
+            /* --- MODIFICATIONS ICI --- */
+            margin-left: -10px; /* Décalé vers la droite (était -40px) */
+            margin-top: 50px;   /* Descendu de 50px */
+        }
+        
+        /* Ajustements Mobile */
+        @media (max-width: 600px) {
+            .quote-text p {
+                font-size: 0.9rem !important; 
+            }
+            .l-shape-grid {
+                margin-left: -10px; /* Garder le décalage sur mobile aussi */
+                margin-top: 30px;   /* Un peu moins descendu sur mobile */
+            }
+        }
+        
+        .quote-img-150 {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            grid-column: 1;
+            grid-row: 1;
+        }
+
+        /* STYLE POUR LES 'x' */
+        .x-style {
+            color: var(--orange);
+            font-family: 'Roboto', sans-serif; 
+            font-weight: normal;
+            font-size: 1.2rem;
+            line-height: 1;
+        }
+
+        .x-vertical {
+            grid-column: 2;
+            grid-row: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 10px;
+        }
+
+        .x-horizontal {
+            grid-column: 1;
+            grid-row: 2;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-right: 10px;
+        }
+        
+        .x-corner {
+            grid-column: 2;
+            grid-row: 2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
         /* --- ELEMENT PHONE --- */
@@ -196,7 +286,7 @@
             text-transform: uppercase;
         }
 
-        /* --- SECTION BUSINESS (ORANGE) --- */
+        /* --- SECTION BUSINESS --- */
         .business-section {
             background-color: #E88D67;
             color: black;
@@ -276,44 +366,61 @@
 </head>
 <body>
 
-    <!-- 1. HERO SECTION (Modifiée) -->
+    <!-- 1. HERO SECTION -->
     <header class="hero">
-        
-        <!-- Texte en haut -->
         <div class="hero-top-text">
             <span>Contact</span>
             <span>what we do</span>
         </div>
-
         <div class="hero-content">
-            <!-- Image 500x500 : Silhouette au micro -->
             <img src="https://i.ibb.co/4njhsPcy/Filmmaker.png" 
                  alt="Silhouette of Man Standing in Front of Microphone" 
                  class="hero-img-middle">
-
-            <!-- Titre -->
             <h1>MOUNIRCH<br><span class="hero-stroke">FILMMAKER</span></h1>
-            
-            <!-- Sous-titre Orange Taille 21 -->
             <p class="hero-subtitle">
                 Films Cinématographiques • Couverture d’Événements •<br> 
                 Contenu pour Entreprises
             </p>
-
             <a href="#" class="btn-book">BOOK NOW</a>
         </div>
     </header>
 
-    <!-- 2. QUOTE SECTION (TEXTE ORANGE) -->
-    <section class="quote-section" style="background:#000; padding:40px 20px; text-align:center;">
-        <p class="font-oswald text-orange" style="font-size:1.2rem; text-transform:uppercase; margin:0; color: var(--orange);">
-            “ WHERE PASSION FOR FILMMAKING MEANS ARTISTIC VISION. A WAY TO TURN VISION, PASSION, AND DETAIL INTO MOVING ART. ”
-        </p>
+    <!-- 2. QUOTE SECTION -->
+    <section class="quote-section" style="background:#000; padding:60px 20px;">
+        <div class="quote-layout">
+            <!-- Texte -->
+            <div class="quote-text">
+                <p class="font-oswald text-orange" style="margin:0; line-height: 1.4;">
+                    • Where passion for filmmaking meets artistic vision.<br>
+                    A way to turn vision, passion, and detail into moving art.
+                </p>
+            </div>
+            
+            <!-- Visuel : Image 150px + CROIX x EN L -->
+            <div class="l-shape-grid">
+                <!-- Image -->
+                <img src="https://i.ibb.co/9k2CXcNq/1080-x-1800-px-500-x-500-px-1.png" 
+                     alt="Camera Detail" 
+                     class="quote-img-150">
+                
+                <!-- Verticales (Droite) -->
+                <div class="x-vertical x-style">
+                    <div>x</div><div>x</div><div>x</div><div>x</div>
+                </div>
+
+                <!-- Horizontales (Bas) -->
+                <div class="x-horizontal x-style">
+                    <div>x</div><div>x</div><div>x</div><div>x</div>
+                </div>
+                
+                <!-- Coin -->
+                <div class="x-corner x-style">x</div>
+            </div>
+        </div>
     </section>
 
-    <!-- 3. WHAT WE DO (TOUT EN ORANGE) -->
+    <!-- 3. WHAT WE DO -->
     <section class="container grid-split all-orange-section">
-        <!-- Texte Gauche -->
         <div>
             <h2>WHAT WE DO</h2>
             <p>
@@ -329,46 +436,24 @@
                 ENG : I create cinematic-style videos inspired by a deep passion for cinema. As a professional filmmaker, I focus on capturing emotion and atmosphere through visual storytelling.
             </p>
         </div>
-        <!-- Vidéo Droite (PC) / Bas (Mobile) -->
         <div class="phone-mockup">
-            <!-- VIDEO VIDEO1.MP4 -->
             <video src="video1.mp4" autoplay loop muted playsinline style="width:100%; height:100%; object-fit:cover; display:block;"></video>
         </div>
     </section>
 
-    <!-- 4. CLIENTS & COLLABORATIONS (TOUT EN ORANGE) -->
+    <!-- 4. CLIENTS & COLLABORATIONS -->
     <section class="container grid-split all-orange-section">
-        <!-- Liste à Gauche sur PC -->
         <div class="order-left-pc">
-            <div class="star-item">
-                <span class="star-icon">✦</span>
-                <span class="star-text">Vidéos et photos de soutenance & graduation</span>
-            </div>
-            <div class="star-item">
-                <span class="star-icon">✦</span>
-                <span class="star-text">Couverture d’événements</span>
-            </div>
-            <div class="star-item">
-                <span class="star-icon">✦</span>
-                <span class="star-text">Vidéos corporate et branding</span>
-            </div>
+            <div class="star-item"><span class="star-icon">✦</span><span class="star-text">Vidéos et photos de soutenance & graduation</span></div>
+            <div class="star-item"><span class="star-icon">✦</span><span class="star-text">Couverture d’événements</span></div>
+            <div class="star-item"><span class="star-icon">✦</span><span class="star-text">Vidéos corporate et branding</span></div>
         </div>
-
-        <!-- Texte à Droite sur PC -->
         <div class="order-right-pc">
             <h2>CLIENTS &<br>COLLABORATIONS</h2>
-            <p>
-                J’ai collaboré en tant que filmmaker avec plusieurs entreprises et restaurants tels que El Aseel, Maison Aziadi, Borsa Mobilya, Roma Tacos, La Baraque Burger, El Forno, et autres.
-            </p>
-            <p>
-                En parallèle, j’ai contribué à leur marketing digital en créant du contenu visuel efficace, améliorant leur visibilité et leurs résultats.
-            </p>
-            <p>
-                J’ai également réalisé des prestations photo & vidéo pour des événements, des soutenances et des événements familiaux, notamment dans la majorité des universités d’Alger, Boumerdès et Blida.
-            </p>
-            <p style="margin-top:20px; font-style:italic;">
-                I have worked as a filmmaker and supported digital marketing efforts by creating effective visual content. I have also covered family events and academic defenses professionally.
-            </p>
+            <p>J’ai collaboré en tant que filmmaker avec plusieurs entreprises et restaurants tels que El Aseel, Maison Aziadi, Borsa Mobilya, Roma Tacos, La Baraque Burger, El Forno, et autres.</p>
+            <p>En parallèle, j’ai contribué à leur marketing digital en créant du contenu visuel efficace, améliorant leur visibilité et leurs résultats.</p>
+            <p>J’ai également réalisé des prestations photo & vidéo pour des événements, des soutenances et des événements familiaux, notamment dans la majorité des universités d’Alger, Boumerdès et Blida.</p>
+            <p style="margin-top:20px; font-style:italic;">I have worked as a filmmaker and supported digital marketing efforts by creating effective visual content. I have also covered family events and academic defenses professionally.</p>
         </div>
     </section>
 
@@ -380,15 +465,9 @@
                 PRODUCT / AESTHETIC / WORKS <br> FOOD / LIFESTYLE / ADVERTISEMENT
             </span>
             <div class="business-grid">
-                <div class="grid-pizza">
-                    <img src="https://via.placeholder.com/800x400/222/fff?text=PHOTO+PIZZA+FOOD" style="border-radius:10px;">
-                </div>
-                <div>
-                    <img src="https://via.placeholder.com/400x400/333/fff?text=PHOTO+PARFUM" style="border-radius:10px;">
-                </div>
-                <div>
-                    <img src="https://via.placeholder.com/400x400/444/fff?text=PHOTO+BOUTEILLE" style="border-radius:10px;">
-                </div>
+                <div class="grid-pizza"><img src="https://via.placeholder.com/800x400/222/fff?text=PHOTO+PIZZA+FOOD" style="border-radius:10px;"></div>
+                <div><img src="https://via.placeholder.com/400x400/333/fff?text=PHOTO+PARFUM" style="border-radius:10px;"></div>
+                <div><img src="https://via.placeholder.com/400x400/444/fff?text=PHOTO+BOUTEILLE" style="border-radius:10px;"></div>
             </div>
         </div>
     </section>
