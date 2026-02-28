@@ -21,6 +21,7 @@
             background-color: var(--dark-green);
             color: var(--white);
             overflow-x: hidden;
+            scroll-behavior: smooth; /* Ajout pour un défilement fluide */
         }
 
         /* TYPOGRAPHIE */
@@ -503,7 +504,8 @@
                 Films Cinématographiques • Couverture d’Événements •<br> 
                 Contenu pour Entreprises
             </p>
-            <a href="#" class="btn-book">BOOK NOW</a>
+            <a href="#contact" class="btn-book">CONTACT</a>
+            <a href="#whatwedo" class="btn-book">WHAT WE DO</a>
         </div>
     </header>
 
@@ -526,7 +528,7 @@
     </section>
 
     <!-- 3. WHAT WE DO -->
-    <section class="container grid-split all-orange-section">
+    <section id="whatwedo" class="container grid-split all-orange-section">
         <div>
             <h2>WHAT WE DO</h2>
             <p>Je réalise des vidéos créatives au style cinématographique, guidées par ma passion pour le cinéma depuis l’âge de 13 ans.</p>
@@ -536,7 +538,7 @@
         </div>
         <div class="phone-mockup">
             <!-- Ajout de 'controls' -->
-            <video src="https://videos.pexels.com/video-files/5532772/5532772-uhd_2732_1440_25fps.mp4" controls autoplay loop muted playsinline style="width:100%; height:100%; object-fit:cover; display:block;"></video>
+            <video src="video1.mp4" controls autoplay loop muted playsinline style="width:100%; height:100%; object-fit:cover; display:block;"></video>
         </div>
     </section>
 
@@ -669,7 +671,7 @@
     </section>
 
     <!-- 10. FOOTER -->
-    <footer class="footer">
+    <footer id="contact" class="footer">
         <div class="footer-overlay">
             <div>
                 <div class="outline-title">MAKING STORIES<br>REAL - CONTACT</div>
