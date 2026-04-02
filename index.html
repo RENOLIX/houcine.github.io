@@ -21,7 +21,7 @@
             background-color: var(--dark-green);
             color: var(--white);
             overflow-x: hidden;
-            scroll-behavior: smooth; /* Ajout pour un défilement fluide */
+            scroll-behavior: smooth;
         }
 
         /* TYPOGRAPHIE */
@@ -42,7 +42,7 @@
             font-size: 0.95rem;
             line-height: 1.6;
             margin-bottom: 15px;
-            color: #ddd; /* Par défaut gris clair */
+            color: #ddd;
         }
 
         .text-orange { color: var(--orange); }
@@ -64,21 +64,21 @@
         }
         .btn-book:hover { background: transparent; color: var(--orange); }
 
-        /* BOUTON MONARCH (NOUVEAU) */
+        /* BOUTON MONARCH (ORANGE) */
         .btn-monarch {
             display: inline-block;
-            background: linear-gradient(to right, #642314, #000000);
-            color: white;
+            background-color: var(--orange);
+            color: var(--black);
             padding: 10px 30px;
             font-family: 'Oswald', sans-serif;
             font-weight: bold;
             text-transform: uppercase;
             text-decoration: none;
             margin-top: 15px;
-            border: none;
+            border: 2px solid var(--orange);
             transition: 0.3s;
         }
-        .btn-monarch:hover { opacity: 0.9; color: white; }
+        .btn-monarch:hover { background: transparent; color: var(--orange); }
 
         /* LAYOUT & GRILLES */
         .container {
@@ -304,22 +304,21 @@
             border: 2px solid black; 
         }
 
-        /* --- NOUVEAU BLOC: CINEMATIC VIDEO (ORANGE) --- */
+        /* --- CINEMATIC VIDEO (ORANGE) --- */
         .cinematic-section {
-            background-color: #ff914d; /* Fond Orange */
+            background-color: #ff914d;
             color: white; 
             padding: 60px 20px;
         }
 
         .cinematic-grid {
             display: flex;
-            flex-direction: column; /* Mobile: empilé */
+            flex-direction: column;
             gap: 40px;
             align-items: center;
             text-align: center;
         }
 
-        /* Colonne Centrale */
         .cine-col-center {
             display: flex;
             flex-direction: column;
@@ -328,7 +327,7 @@
         }
         .cine-col-center h2 {
             font-size: 2.5rem;
-            color: white; /* Titre blanc */
+            color: white;
             margin-bottom: 20px;
             line-height: 1.1;
         }
@@ -338,18 +337,17 @@
             height: auto;
             border-radius: 10px;
             margin-bottom: 20px;
-            border: none; /* PAS DE CONTOUR BLANC */
+            border: none;
         }
         .cine-col-center p {
             font-family: 'Oswald', sans-serif;
             font-size: 1.1rem;
-            color: white; /* Texte blanc */
+            color: white;
             font-weight: bold;
             max-width: 300px;
             margin: 0;
         }
 
-        /* Vidéos latérales */
         .cine-video {
             width: 100%;
             max-width: 400px;
@@ -358,6 +356,32 @@
             border-radius: 20px;
             border: none;
             box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        /* --- COUVERTURE DE CELEBRATIONS / SHOOTING --- */
+        .celebrations-section {
+            background-color: var(--dark-green);
+            padding: 60px 20px;
+            text-align: center;
+        }
+        .celebrations-section h2 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .celebrations-img-placeholder {
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            min-height: 300px;
+            border: 2px dashed var(--orange);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--orange);
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.2rem;
+            text-transform: uppercase;
         }
 
         /* --- SECTION GRADUATION --- */
@@ -375,7 +399,6 @@
         }
         .hole { width: 20px; height: 25px; background: #222; border-radius: 2px; }
         
-        /* Conteneur spécial pour la vidéo collée aux bandes */
         .cinema-reel-container {
             width: 100%;
             max-width: 800px;
@@ -385,7 +408,7 @@
         
         .reel-video {
             width: 100%;
-            display: block; /* Enlève l'espace sous la vidéo */
+            display: block;
             height: auto;
             background: black;
         }
@@ -409,16 +432,15 @@
         }
 
         .btn-insta {
-            background-color: var(--insta);
-            color: white;
-            border: none;
+            background-color: var(--orange);
+            color: var(--black);
+            border: 2px solid var(--orange);
             padding: 12px 35px;
             margin-top: 0;
         }
         .btn-insta:hover {
-            background-color: white;
-            color: var(--insta);
-            border: 2px solid var(--insta);
+            background-color: transparent;
+            color: var(--orange);
         }
 
         /* --- BACKSTAGE --- */
@@ -428,7 +450,6 @@
         /* --- REVIEWS --- */
         .reviews-section { background-color: var(--orange); color: black; }
         .reviews-section h2 { color: black; font-size: 3.5rem; }
-        /* gold-frame class kept in CSS for safety but removed from HTML */
         .gold-frame { border: 15px solid #bfa048; background-color: #222; padding: 15px; box-shadow: 10px 10px 20px rgba(0,0,0,0.4); display: flex; flex-direction: column; gap: 15px; }
         .bubble { background: #333; color: white; padding: 12px; border-radius: 10px; font-size: 0.8rem; position: relative; }
         .bubble.right { align-self: flex-end; background: #eee; color: black; }
@@ -439,6 +460,30 @@
         .outline-title { font-size: 3rem; color: transparent; -webkit-text-stroke: 1px var(--orange); font-family: 'Anton', sans-serif; line-height: 1; margin-bottom: 30px; }
         .contact-head { color: var(--orange); font-family: 'Oswald', sans-serif; font-weight: bold; display: block; }
         .contact-val { color: white; font-size: 1.1rem; margin-bottom: 20px; display: block; }
+
+        /* WhatsApp link style */
+        .whatsapp-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            color: white;
+            text-decoration: none;
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            transition: 0.3s;
+        }
+        .whatsapp-link:hover {
+            color: var(--orange);
+        }
+        .whatsapp-link svg {
+            width: 24px;
+            height: 24px;
+            fill: white;
+            transition: 0.3s;
+        }
+        .whatsapp-link:hover svg {
+            fill: var(--orange);
+        }
 
         /* --- RESPONSIVE DESKTOP (900px+) --- */
         @media (min-width: 900px) {
@@ -486,10 +531,9 @@
                 transform: translateX(-100px); 
             }
 
-            /* --- CINEMATIC SECTION GRID (PC) --- */
             .cinematic-grid {
                 display: grid;
-                grid-template-columns: 1fr 1.2fr 1fr; /* Vidéo | Centre | Vidéo */
+                grid-template-columns: 1fr 1.2fr 1fr;
                 gap: 30px;
                 align-items: center;
             }
@@ -508,8 +552,8 @@
     <!-- 1. HERO SECTION -->
     <header class="hero">
         <div class="hero-top-text">
-            <span>Contact</span>
-            <span>what we do</span>
+            <a href="#contact" style="color:white; text-decoration:none;">Contact</a>
+            <a href="#whatwedo" style="color:white; text-decoration:none;">what we do</a>
         </div>
         <div class="hero-content">
             <img src="https://i.ibb.co/4njhsPcy/Filmmaker.png" 
@@ -517,11 +561,14 @@
                  class="hero-img-middle">
             <h1>MOUNIRCH<br><span class="hero-stroke">FILMMAKER</span></h1>
             <p class="hero-subtitle">
-                Films Cinématographiques • Couverture d’Événements •<br> 
-                Contenu pour Entreprises
+                 • FILMS CINÉMATOGRAPHIQUES • 
+ COUVERTURE D'ÉVÉNEMENTS •<br> 
+                 • CONTENU POUR ENTREPRISES •
             </p>
-            <a href="#contact" class="btn-book">CONTACT</a>
-            <a href="#whatwedo" class="btn-book">WHAT WE DO</a>
+
+            <p class="hero-subtitle">
+                Un aperçu de mon univers, né de la passion et de la créativité.
+            </p>
         </div>
     </header>
 
@@ -547,13 +594,12 @@
     <section id="whatwedo" class="container grid-split all-orange-section">
         <div>
             <h2>WHAT WE DO</h2>
-            <p>Je réalise des vidéos créatives au style cinématographique, guidées par ma passion pour le cinéma depuis l’âge de 13 ans.</p>
-            <p>Filmmaker professionnel, je raconte des histoires à travers l’image en capturant l’émotion, l’atmosphère et les moments forts.</p>
+            <p>Je réalise des vidéos créatives au style cinématographique, guidées par ma passion pour le cinéma depuis l'âge de 13 ans.</p>
+            <p>Filmmaker professionnel, je raconte des histoires à travers l'image en capturant l'émotion, l'atmosphère et les moments forts.</p>
             <p>Mon objectif est de transformer chaque projet en une expérience visuelle cinématographique et impactante.</p>
             <p style="margin-top:20px; font-style:italic;">ENG : I create cinematic-style videos inspired by a deep passion for cinema. As a professional filmmaker, I focus on capturing emotion and atmosphere through visual storytelling.</p>
         </div>
         <div class="phone-mockup">
-            <!-- Autoplay Loop Muted Controls -->
             <video src="video2.mp4" autoplay loop muted playsinline controls style="width:100%; height:100%; object-fit:cover; display:block;"></video>
         </div>
     </section>
@@ -561,14 +607,14 @@
     <!-- 4. CLIENTS & COLLABORATIONS -->
     <section class="container grid-split all-orange-section">
         <div class="order-left-pc">
-            <div class="star-item"><span class="star-icon">✦</span><span class="star-text">Vidéos et photos de soutenance & graduation</span></div>
-            <div class="star-item"><span class="star-icon">✦</span><span class="star-text">Couverture d’événements</span></div>
-            <div class="star-item"><span class="star-icon">✦</span><span class="star-text">Vidéos corporate et branding</span></div>
+            <div class="star-item"><span class="star-icon">✦</span><span class="star-text">COUVERTURE D'ÉVÉNEMENTS PROFESSIONNELS</span></div>
+            <div class="star-item"><span class="star-icon">✦</span><span class="star-text">VIDÉOS CORPORATE & BRAND CONTENT</span></div>
+            <div class="star-item"><span class="star-icon">✦</span><span class="star-text">COUVERTURE DE CÉLÉBRATIONS</span></div>
         </div>
         <div class="order-right-pc">
             <h2>CLIENTS &<br>COLLABORATIONS</h2>
-            <p>J’ai collaboré en tant que filmmaker avec plusieurs entreprises et restaurants tels que El Aseel, Maison Aziadi, Borsa Mobilya, Roma Tacos, La Baraque Burger, El Forno, et autres.</p>
-            <p>En parallèle, j’ai contribué à leur marketing digital en créant du contenu visuel efficace, améliorant leur visibilité et leurs résultats.</p>
+            <p>J'ai collaboré en tant que filmmaker avec plusieurs entreprises et restaurants tels que El Aseel, Maison Aziadi, Borsa Mobilya, Roma Tacos, La Baraque Burger, El Forno, et autres.</p>
+            <p>En parallèle, j'ai contribué à leur marketing digital en créant du contenu visuel efficace, améliorant leur visibilité et leurs résultats.</p>
         </div>
     </section>
 
@@ -590,7 +636,6 @@
     <section class="cinematic-section">
         <div class="container cinematic-grid">
             <div class="cine-item">
-                <!-- Autoplay Loop Muted Controls -->
                 <video src="videoparfum.mp4" autoplay loop muted playsinline controls class="cine-video"></video>
             </div>
             <div class="cine-col-center">
@@ -599,47 +644,44 @@
                 <p>Chaque image raconte une histoire. Chaque mouvement sublime votre produit.</p>
             </div>
             <div class="cine-item">
-                 <!-- Autoplay Loop Muted Controls -->
                 <video src="videoparfum2.mp4" autoplay loop muted playsinline controls class="cine-video"></video>
             </div>
         </div>
     </section>
 
-    <!-- 7. GRADUATION EVENT -->
+    <!-- 7. COUVERTURE DE CELEBRATIONS / SHOOTING -->
+    <!-- 7. COUVERTURE DE CELEBRATIONS / SHOOTING -->
+    <section class="celebrations-section container">
+        <h2 class="text-orange">COUVERTURE DE CÉLÉBRATIONS / SHOOTING</h2>
+        <img src="https://i.ibb.co/4R3GXxdC/IMG-8105.jpg" alt="Couverture de Célébrations / Shooting" style="width:100%; max-width:800px; border-radius:10px; margin: 0 auto;">
+    </section>
+
+    <!-- 8. GRADUATION EVENT -->
     <section class="graduation-section container">
         
-        <!-- A. Titre d'abord -->
         <h2 class="text-orange" style="text-align:center; margin-bottom:30px;">GRADUATION EVENT</h2>
         
-        <!-- B. Vidéo collée aux bandes de film -->
         <div class="cinema-reel-container">
             <div class="film-strip" style="margin:0;">
                 <div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div>
             </div>
-            <!-- Autoplay Loop Muted Controls -->
             <video src="video graduation (1).mp4" autoplay loop muted playsinline controls class="reel-video"></video>
             <div class="film-strip" style="margin:0;">
                 <div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div>
             </div>
         </div>
 
-        <!-- C. Grille Photo et Instagram -->
         <div class="grid-split" style="margin-top:50px;">
-            <!-- Gauche: Photo -->
             <img src="https://i.ibb.co/pvJfb8YD/Design-sans-titre-31.png" style="border-radius:10px;">
             
-            <!-- Droite: Vidéo Phone + Insta -->
             <div class="graduation-right-col">
                 <div class="phone-mockup" style="margin-bottom: 20px;">
-                    <!-- Autoplay Loop Muted Controls -->
                     <video src="insta21.mp4" autoplay loop muted playsinline controls style="width:100%; height:100%; object-fit:cover; display:block;"></video>
                 </div>
                 
-                <!-- Main qui pointe + Bouton -->
                 <div class="hand-pointer">👇</div>
                 <a href="https://www.instagram.com/magnifique.filmaker?igsh=M2RseTh4Ymh4a3hx" class="btn-book btn-insta">INSTAGRAM</a>
                 
-                <!-- Texte explicatif -->
                 <div style="margin-top: 25px; max-width: 400px;">
                     <p class="text-orange font-oswald" style="font-size:1.1rem; line-height:1.4; margin-bottom:5px;">
                         Une page dédiée aux fêtes familiales et aux soutenances.<br>
@@ -654,25 +696,23 @@
         </div>
     </section>
 
-    <!-- 8. BACKSTAGE CINEMA -->
+    <!-- 9. BACKSTAGE CINEMA -->
     <section class="container">
         <h2 class="text-orange" style="text-align:center; margin-bottom:40px;">BACKSTAGE CINEMA</h2>
         <div class="backstage-grid">
             <div class="film-col">
-                <!-- Autoplay Loop Muted Controls -->
                 <video src="vd1.mp4" autoplay loop muted playsinline controls style="width:100%; height:100%; object-fit:cover; display:block;"></video>
             </div>
             <div class="film-col">
                 <img src="https://i.ibb.co/4Rxjn9GM/Design-sans-titre-38.png" alt="Backstage Photo" style="width:100%; height:auto;">
             </div>
             <div class="film-col">
-                <!-- Autoplay Loop Muted Controls -->
                 <video src="vd2.mp4" autoplay loop muted playsinline controls style="width:100%; height:100%; object-fit:cover; display:block;"></video>
             </div>
         </div>
     </section>
 
-    <!-- 9. REVIEWS -->
+    <!-- 10. REVIEWS -->
     <section class="reviews-section">
         <div class="container grid-split">
             <div>
@@ -687,13 +727,16 @@
         </div>
     </section>
 
-    <!-- 10. FOOTER -->
+    <!-- 11. FOOTER -->
     <footer id="contact" class="footer">
         <div class="footer-overlay">
             <div>
                 <div class="outline-title">MAKING STORIES<br>REAL - CONTACT</div>
                 <span class="contact-head">PHONE / WHATSAPP</span>
-                <span class="contact-val">0559 83 20 01</span>
+                <a href="https://wa.me/213559832001" class="whatsapp-link" target="_blank" rel="noopener noreferrer">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                    0559 83 20 01
+                </a>
                 <span class="contact-head">RÉSEAUX / STAY CONNECTED</span>
                 <span class="contact-val">@mounirch.filmmaker</span>
                 <span class="contact-val">@magnifique.filmmaker</span>
@@ -704,7 +747,6 @@
                  <img src="" style="border-radius: 20px; box-shadow: 0 10px 40px black;">
             </div>
         </div>
-        <!-- SIGNATURE MODIFIÉE -->
         <div style="width:100%; text-align:center; padding: 20px 0; background-color: rgba(0,0,0,0.8);">
             <p style="font-family:'Oswald', sans-serif; font-size: 0.8rem; color: #FF914D; text-transform: uppercase; letter-spacing: 2px; margin: 0;">
                 © 2026 Mounirch Filmmaker. All rights reserved.<br>
